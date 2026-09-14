@@ -3,26 +3,22 @@ public class Frequency {
 
         String str = "hello how are you";
 
-        char[] ch = str.toCharArray();
-        boolean[] visited = new boolean[ch.length];
+        int[] freq = new int[26];
 
-        for(int i = 0; i < ch.length; i++) {
+        for(int i = 0; i < str.length(); i++) {
 
-            if(ch[i] == ' ' || visited[i]) {
-                continue;
+            char ch = str.charAt(i);
+
+            if(ch != ' ') {
+                freq[ch - 'a']++;
             }
+        }
 
-            int count = 1;
+        for(int i = 0; i < 26; i++) {
 
-            for(int j = i + 1; j < ch.length; j++) {
-
-                if(ch[i] == ch[j]) {
-                    count++;
-                    visited[j] = true;
-                }
+            if(freq[i] > 0) {
+                System.out.println((char)(i + 'a') + " = " + freq[i]);
             }
-
-            System.out.println(ch[i] + " = " + count);
         }
     }
 }
