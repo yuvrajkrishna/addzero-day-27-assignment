@@ -3,30 +3,30 @@ public class printwordinreverse {
 
         String str = "good evening";
 
-        String[] words = str.split(" ");
+        char[] ch = str.toCharArray();
 
-        for(int i = 0; i < words.length; i++) {
+        int left = 0;
 
-            char[] ch = words[i].toCharArray();
+        for(int i = 0; i <= ch.length; i++) {
 
-            int left = 0;
-            int right = ch.length - 1;
+            if(i == ch.length || ch[i] == ' ') {
 
-            while(left < right) {
+                int right = i - 1;
 
-                char temp = ch[left];
-                ch[left] = ch[right];
-                ch[right] = temp;
+                while(left < right) {
 
-                left++;
-                right--;
+                    char temp = ch[left];
+                    ch[left] = ch[right];
+                    ch[right] = temp;
+
+                    left++;
+                    right--;
+                }
+
+                left = i + 1;
             }
-
-            words[i] = new String(ch);
         }
 
-        for(int i = 0; i < words.length; i++) {
-            System.out.print(words[i] + " ");
-        }
+        System.out.println(ch);
     }
 }
