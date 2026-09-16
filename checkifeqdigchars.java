@@ -1,4 +1,4 @@
-public class CheckIfEqDigChars {
+public class checkifeqdigchars {
     public static void main(String[] args) {
 
         String str = "he0llo1234";
